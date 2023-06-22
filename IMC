@@ -26,4 +26,35 @@ public abstract class PessoaIMC extends Pessoa {
     public String toString() {
         return super.toString() + "\nPeso: " + peso + "\nAltura: " + altura;
     }
+} 
+
+
+public class ExemploPessoaIMC extends PessoaIMC {
+    public ExemploPessoaIMC(String nome, String dataNascimento, double peso, double altura) {
+        super(nome, dataNascimento, peso, altura);
+    }
+
+    @Override
+    public String resultIMC() {
+        double imc = calculaIMC();
+        if (imc < 18.5) {
+            return "Abaixo do peso";
+        } else if (imc < 25) {
+            return "Peso normal";
+        } else if (imc < 30) {
+            return "Sobrepeso";
+        } else {
+            return "Obesidade";
+        }
+    }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        ExemploPessoaIMC pessoa = new ExemploPessoaIMC("Nicole Araujo", "22/09/2000", 75.0, 1.68);
+        System.out.println(pessoa.toString());
+        System.out.println("Resultado IMC: " + pessoa.resultIMC());
+    }
+}
+
+
