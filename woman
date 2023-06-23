@@ -1,0 +1,49 @@
+public class Homem extends PessoaIMC {
+    public Homem(String nome, String dataNascimento, double peso, double altura) {
+        super(nome, dataNascimento, peso, altura);
+    }
+
+    @Override
+    public String resultIMC() {
+        double imc = calculaIMC();
+        if (imc < 20.7) {
+            return "Abaixo do peso ideal";
+        } else if (imc < 26.4) {
+            return "Peso ideal";
+        } else {
+            return "Acima do peso ideal";
+        }
+    }
+}
+
+public class Mulher extends PessoaIMC {
+    public Mulher(String nome, String dataNascimento, double peso, double altura) {
+        super(nome, dataNascimento, peso, altura);
+    }
+
+    @Override
+    public String resultIMC() {
+        double imc = calculaIMC();
+        if (imc < 19) {
+            return "Abaixo do peso ideal";
+        } else if (imc < 25.8) {
+            return "Peso ideal";
+        } else {
+            return "Acima do peso ideal";
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Homem homem = new Homem("Ayrton Nascimento", "28/02/2002", 75.0, 1.85);
+        System.out.println(homem.toString());
+        System.out.println("Resultado IMC: " + homem.resultIMC());
+
+        System.out.println();
+
+        Mulher mulher = new Mulher("Ester da Cruz" "22/07/2003", 80.0, 1.61);
+        System.out.println(mulher.toString());
+        System.out.println("Resultado IMC: " + mulher.resultIMC());
+    }
+}
